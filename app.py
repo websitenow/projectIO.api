@@ -13,7 +13,7 @@ def home():
 @app.route("/<index>/<name>")
 def search(index, name):
     try:
-        url = environ[CONST[index]]
+        url = environ[CONST[int(index)]]
         html = get(url + name)
         return html.text
     except:
