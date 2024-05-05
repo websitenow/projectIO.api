@@ -1,19 +1,21 @@
 from flask import Flask
 from requests import get
+from os import environ
 
 app = Flask(__name__)
 
-GOOGLEURL = "https://www.google.com/search?tbm=isch&q="
+CONST = ['URL_1', 'URL_2']
 
 @app.route("/")
 def home():
     return "Hello!!!"
 
-@app.route("/<name>")
-def search(name):
+@app.route("/<index>/<name>")
+def search(index, name):
     try:
-        html = get(GOOGLEURL + name)
-        return html.text.replace('"/', '"https://www.google.com/')
+        url = environ[CONST[index]]
+        html = get(url + name)
+        return html.text
     except:
         return ":( <span style='color: red;'>Error</span>"
 
