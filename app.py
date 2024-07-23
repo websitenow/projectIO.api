@@ -16,10 +16,10 @@ def get_captions(url):
             founds = findall(pdr, html)
             if len(founds) == 0:
                 return
-           
-            founds = ['[{' + x.replace('\\u0026', '&').replace("'",'"') + '}]' for x in founds]
-            founds = founds[1:-1]
-            return jsonify(founds)
+            res = ""
+            for data in founds:
+                res += '[{' + x.replace('\\u0026', '&').replace("'",'"') + '}]'
+            return res
     except:
         pass
         
