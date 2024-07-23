@@ -29,4 +29,5 @@ jobs:
         pip install requests flask 
     - name: Create Requirements
       run: |
-        python -m pip freeze > requirements.txt
+        python -m pip freeze
+        
