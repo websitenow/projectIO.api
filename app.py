@@ -2,6 +2,7 @@ import requests
 from re import findall, compile
 from flask import Flask, request
 from werkzeug.exceptions import HTTPException
+from json import dumps
 
 app = Flask(__name__)
 
@@ -16,7 +17,7 @@ def get_captions(url):
             if len(founds) == 0:
                 return
            
-            founds = ['[{' + x.replace('\\u0026', '&') + '}]' for x in founds]
+            founds = [dumps('[{' + x.replace('\\u0026', '&') + '}]') for x in founds]
             
             return founds
     except:
