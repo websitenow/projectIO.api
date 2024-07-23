@@ -18,7 +18,7 @@ def get_captions(url):
                 return
             res = ""
             for data in founds:
-                res += '[{' + x.replace('\\u0026', '&').replace("'",'"') + '}]'
+                res += '[{' + data.replace('\\u0026', '&').replace("'",'"') + '}]'
             return res
     except:
         pass
