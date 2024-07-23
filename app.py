@@ -17,8 +17,8 @@ def get_captions(url):
             if len(founds) == 0:
                 return
            
-            founds = [loads('[{' + x.replace('\\u0026', '&').replace("'",'"') + '}]') for x in founds]
-            founds = dumps(str(founds)[1:-1])
+            founds = ['[{' + x.replace('\\u0026', '&').replace("'",'"') + '}]' for x in founds]
+            founds = founds[1:-1]
             return jsonify(founds)
     except:
         pass
