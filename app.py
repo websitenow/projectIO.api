@@ -1,6 +1,6 @@
 import requests
 from re import findall, compile
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from werkzeug.exceptions import HTTPException
 from json import loads, dumps
 
@@ -18,8 +18,8 @@ def get_captions(url):
                 return
            
             founds = [loads('[{' + x.replace('\\u0026', '&') + '}]') for x in founds]
-            founds = dumps(str(founds)[1:-1])
-            return founds
+            founds = str(founds)[1:-1]
+            return jsonify(founds)
     except:
         pass
         
