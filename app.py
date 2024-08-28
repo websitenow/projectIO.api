@@ -35,7 +35,7 @@ def GETcaptions():
 
 @app.errorhandler(HTTPException)
 def handle_bad_request(error):
-    return f'bad request! {error.code}'
+    return f'Error! {error.code}'
 
 if __name__ == "__main__":
     app.run()
