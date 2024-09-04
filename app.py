@@ -38,6 +38,7 @@ def getUrl():
     url = request.args.get('url')
     if url:
         try:
+            url = "https://" + url
             html = requests.get(url)
             return html.text
         except Exception as e:
