@@ -33,6 +33,18 @@ def GETcaptions():
         return captions
     return []
 
+@app.route('/url')
+def getUrl():
+    url = request.args.get('url')
+    if url:
+        try:
+            html = get_captions(url)
+            return html.text
+        except:
+            return ""
+    return ""
+
+
 @app.errorhandler(HTTPException)
 def handle_bad_request(error):
     return f'bad request! {error.code}'
