@@ -38,7 +38,7 @@ def getUrl():
     url = request.args.get('url')
     if url:
         try:
-            html = get_captions(url)
+            html = requests.get(url)
             return html.text
         except:
             return ""
