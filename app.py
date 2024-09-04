@@ -40,9 +40,9 @@ def getUrl():
         try:
             html = requests.get(url)
             return html.text
-        except:
-            return ""
-    return ""
+        except Exception as e:
+            return f"{e}{url}"
+    return f"{url}"
 
 
 @app.errorhandler(HTTPException)
