@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def homepage():
-    return "<h2>HOMEPAGE</h2><br><a href='/proxy'>"
+    return "<h2>HOMEPAGE</h2><br><a href='/proxy'>ACTIVE PROXYE</a>"
 
 @app.route('/proxy')
 def proxy():
