@@ -19,7 +19,10 @@ def proxy():
 @app.route("/active")
 def active_proxie():
     actived = environ.get("PROXYE_ACTIVED")
-    return f"RES: {actived}"
+    if actived == "False":
+       return "NOT ACTIVED"
+    else:
+       return "ACTIVED"
 
 @app.errorhandler(HTTPException)
 def handle_bad_request(error):
