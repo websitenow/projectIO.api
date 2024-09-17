@@ -53,13 +53,7 @@
 #if __name__ == "__main__":
 #    app.run()
 
-from proxy import Proxy
 
-# Configurações do proxy
-proxy = Proxy(
-    hostname='0.0.0.0',   # Ou use 'localhost' se não precisar acessar de fora da máquina
-    port=9000
-)
+from subprocess import run
 
-# Inicia o proxy
-proxy.start()
+run("proxy --hostname 0.0.0.0 --port 9000", shell=True)
