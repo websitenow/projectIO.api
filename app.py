@@ -18,7 +18,7 @@ def proxy():
 
 @app.route("/active")
 def active_proxie():
-    if not environ.get("PROXYE_ACTIVED"):
+    if not bool(environ.get("PROXYE_ACTIVED")):
         return "ACTIVE PROXYE"
     else:
         return "PROXYE IS ACTIVED"
