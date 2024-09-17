@@ -20,10 +20,10 @@ def startProxie():
             stderr=subprocess.PIPE
         )
         print("Proxy started with PID: %d", process.pid)
-        environ["PROXYE_ACTIVED"] = True
+        environ["PROXYE_ACTIVED"] = "True"
     except Exception as e:
         print("Failed to start proxy: %s", e)
-        environ["PROXYE_ACTIVED"] = False
+        environ["PROXYE_ACTIVED"] = "False"
 
 @app.route("/")
 def homepage():

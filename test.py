@@ -1,6 +1,6 @@
 import requests
 
-prox = "https://project-io-api.vercel.app:9000"
+prox = "https://project-io-api.vercel.app:8080"
 
 proxies = {
     'http': prox,
