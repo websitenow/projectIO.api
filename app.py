@@ -4,15 +4,12 @@ from flask import Flask, request, jsonify, render_template
 from werkzeug.exceptions import HTTPException
 from json import loads, dumps
 from os import environ
-from subprocess import Popen
+import subprocess
 from threading import Thread
 
 app = Flask(__name__)
 global proxie
 proxie = None
-
-import subprocess
-import logging
 
 def startProxie():
     try:
@@ -22,9 +19,11 @@ def startProxie():
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE
         )
-        logging.info("Proxy started with PID: %d", process.pid)
+        print("Proxy started with PID: %d", process.pid)
+        environ["PROXYE_ACTIVED"] = True
     except Exception as e:
-        logging.error("Failed to start proxy: %s", e)
+        print("Failed to start proxy: %s", e)
+        environ["PROXYE_ACTIVED"] = False
 
 @app.route("/")
 def homepage():
