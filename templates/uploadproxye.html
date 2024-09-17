@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +10,20 @@
             padding: 0;
             margin: 0;
             box-sizing: border-box;
-            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             color: #ffffff;
             font-size: clamp(0.9em, 5vw - 1.3em, 1.1em);
             user-select: none;
             -moz-user-select: none;
             -webkit-user-select: none;
         }
+
         body {
             background-color: #000000;
             width: 100dvw;
             height: 100dvh;
         }
+
         main {
             display: flex;
             align-items: center;
@@ -58,11 +61,22 @@
         }
 
         .actived-info {
-            {% if actived %}
-                background-color: rgb(247, 30, 23);
-            {% else %}
-                background-color: rgb(68, 247, 23);
-            {% endif %}
+                {
+                % if actived %
+            }
+
+            background-color: rgb(247, 30, 23);
+
+                {
+                % else %
+            }
+
+            background-color: rgb(68, 247, 23);
+
+                {
+                % endif %
+            }
+
             padding: 0.3em;
             border-radius: 0.4em;
             text-transform: uppercase;
@@ -70,11 +84,12 @@
         }
     </style>
 </head>
+
 <body>
     <main>
         <h2>Upload Proxy {{ actived }}</h2>
         <div class="button-area">
-            <div class="active">
+            <div class="active" id="button-active">
                 ATIVAR
             </div>
         </div>
@@ -82,5 +97,16 @@
             is actived
         </div>
     </main>
+    <script>
+        const activeButton = document.getElementById("button-active")
+
+        activeButton.addEventListener("click", (e) => {
+            fetch("/active")
+                .then(r => r.text())
+                .then(r => console.log(r))
+                .catch(e => console.log(e))
+        })
+    </script>
 </body>
+
 </html>

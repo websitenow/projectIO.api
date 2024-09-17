@@ -16,6 +16,12 @@ def proxy():
    actived = environ.get("PROXYE_ACTIVED")
    return render_template("uploadproxye.html", actived=actived)
 
+@app.route("/active")
+def active_proxie():
+    if not environ.get("PROXYE_ACTIVED"):
+        return "ACTIVE PROXYE"
+    else:
+        return "PROXYE IS ACTIVED"
 
 @app.errorhandler(HTTPException)
 def handle_bad_request(error):
