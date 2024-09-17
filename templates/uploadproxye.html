@@ -4,8 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proxye Start</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            font-size: clamp(0.9em, 5vw - 1.3em, 1.1em);
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+        }
+        body {
+            background-color: #000000;
+            width: 100dvw;
+            height: 100dvh;
+        }
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #ffffff54;
+            width: 100%;
+            height: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 1em;
+            gap: 1em;
+        }
+
+        .button-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0c0a2b;
+            width: 100%;
+            height: 100px;
+            padding: 1em;
+            border-radius: 0.5em;
+        }
+
+        .active {
+            background-color: #6b6021af;
+            padding: 0.3em;
+            border-radius: 0.3em;
+            border: 1px solid #ffffff;
+        }
+
+        .active:active {
+            transform: scale(0.9);
+        }
+
+        .actived-info {
+            {% if {{ actived }} %}
+                background-color: rgb(247, 30, 23);
+            {% else %}
+                background-color: rgb(68, 247, 23);
+            {% endif %}
+            padding: 0.3em;
+            border-radius: 0.4em;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    
+    <main>
+        <h2>Upload Proxy</h2>
+        <div class="button-area">
+            <div class="active">
+                ATIVAR
+            </div>
+        </div>
+        <div class="actived-info">
+            is actived
+        </div>
+    </main>
 </body>
 </html>
