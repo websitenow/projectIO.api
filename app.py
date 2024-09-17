@@ -5,6 +5,8 @@ from werkzeug.exceptions import HTTPException
 from json import loads, dumps
 from os import environ
 
+app = Flask(__name__)
+
 @app.route("/")
 def homepage():
     return "<h2>HOMEPAGE</h2><br><a href='/proxy'>ACTIVE PROXYE</a>"
