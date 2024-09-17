@@ -1,4 +1,4 @@
-import requests
+"""import requests
 from re import findall, compile
 from flask import Flask, request, jsonify
 from werkzeug.exceptions import HTTPException
@@ -52,3 +52,11 @@ def handle_bad_request(error):
 
 if __name__ == "__main__":
     app.run()
+""" 
+import subprocess
+
+# Comando para iniciar o proxy
+command = "proxy --hostname 0.0.0.0 --port 9000"
+
+# Executar o comando
+subprocess.run(command, shell=True)
